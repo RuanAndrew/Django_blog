@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog Django</title>
+</head>
+<body>
+    
+    <h1>Lista de Posts do Blog</h1>
+
+    {% if posts %}
+        <ul>
+        {% for post in posts %}
+            <li>
+                <h2>{{ post.titulo }}</h2>
+                <p><strong>Tag:</strong> {{ post.tag.nome }}</p>
+                <p><strong>Publicado em:</strong> {{ post.data_publicacao }}</p>
+                
+                <a href="/post/{{ post.id }}/">Ver detalhes do post</a>
+                <hr>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>Nenhum post publicado ainda.</p>
+    {% endif %}
+
+</body>
+</html>
